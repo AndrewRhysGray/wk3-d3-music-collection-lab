@@ -4,32 +4,36 @@ require_relative('../models/artist')
 
 artist1 = Artist.new({
   'alias' => 'Aphex twin'
-  })
+})
 
-  artist2 = Artist.new({
-    'alias' => 'Chvrches'
-    })
+artist2 = Artist.new({
+  'alias' => 'Chvrches'
+})
 
+artist1.save()
+artist2.save()
 
-  album1 = Album.new({
-    'album' => 'Selected Ambient Works',
-    'genre' => 'IDM'
-    })
+album1 = Album.new({
+  'title' => 'Selected Ambient Works',
+  'genre' => 'IDM',
+  'artist_id' => artist1.id
+})
 
-  album2 = Album.new({
-    'album' => 'Selected Ambient Works 2',
-    'genre' => 'IDM'
-    })
+album2 = Album.new({
+  'title' => 'Selected Ambient Works 2',
+  'genre' => 'IDM',
+  'artist_id' => artist1.id
+})
 
-  album3 = Album.new({
-    'album' => 'Love is dead',
-    'genre' => 'Synth-pop'
-    })
+album3 = Album.new({
+  'title' => 'Love is dead',
+  'genre' => 'Synth-pop',
+  'artist_id' => artist2.id
+})
 
-    artist1.save()
-
-    album1.save()
-
+album1.save()
+album2.save()
+album3.save()
 
 binding.pry
 nil
