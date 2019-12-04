@@ -1,9 +1,9 @@
-DROP TABLE IF EXIST
+DROP TABLE IF EXISTS albums;
+DROP TABLE IF EXISTS artists;
 
 CREATE TABLE artists (
   id SERIAL PRIMARY KEY,
-  first_name VARCHAR(255),
-  last_name VARCHAR(255)
+  alias VARCHAR(255)
 );
 
 CREATE TABLE albums (
