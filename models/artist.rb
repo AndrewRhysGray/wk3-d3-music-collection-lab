@@ -1,6 +1,6 @@
 require('pg')
 
-class Artists
+class Artist
 
 attr_accessor :alias
 attr_reader :id
