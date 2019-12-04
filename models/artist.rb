@@ -25,7 +25,23 @@ attr_reader :id
     @id = SqlRunner.run(sql, values)[0]['id'].to_i
   end
 
+  def self.delete_all()
+    sql = 'DELETE FROM artists'
+    SqlRunner.run(sql)
+  end
 
+  def self.select_all()
+    sql = 'SELECT * FROM artists'
+    artist_hashes = SqlRunner.run(sql)
+    albums = artist_hashes.map{|artist| Artist.new(artist)}
+    return albums
+  end
 
-
+  def albums()
+    sql = 'SELECT * FROM albums WHERE artist_id = $1'
+    values = [@id]
+    album_hashes = SqlRunner.run(sql, values)
+    albums = album_hashes.map{|album| Album.new(album)}
+    return albums
+  end
 end
